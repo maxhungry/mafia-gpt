@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "convos"
+version = "0.1.0"
+description = ""
+authors = ["Max Hung <info@maxhung.co.nz>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+openai = "^0.27.8"
+python-dotenv = "^1.0.0"
+langchain = "^0.0.199"
+jupyter = "^1.0.0"
+streamlit = "^1.24.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
