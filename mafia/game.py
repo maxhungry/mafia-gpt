@@ -42,7 +42,7 @@ class Game:
         self.display.show(f"The night is over. {person.name} has been eliminated 😢")
 
     def game_state(self):
-        t_count, m_count = self.players.count()
+        m_count, t_count = self.players.count()
         if t_count == 0:
             return 'end', 'mafia'
         if m_count == 0:
