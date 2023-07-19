@@ -59,7 +59,9 @@ class Game:
 
         self.display.show("Let the discussion begin!")
 
-        while True:
+        state = self.game_state()
+
+        while state[0] == 'active':
             match self.step:
                 case 0:
                     for person in self.players:
@@ -72,13 +74,15 @@ class Game:
                         self.count_votes(target)
                     self.eliminate_from_votes()
 
-            if self.step >= 1:
+                case 2:
+                    self.mafia_votes()
+
+            if self.step >= 2:
                 self.step = 0
-                state, winner = self.game_state()
-                if state == 'end':
-                    self.display.show(f"Game over, {winner} win!")
-                    break
             else:
                 self.step += 1
 
+            state = self.game_state()
+
+        self.display.show(f"Game over, {state[1]} win!")
         self.display.show("Bye!")
